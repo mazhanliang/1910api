@@ -47,3 +47,10 @@ Route::any('api/signadd',"Api\SignController@signadd");
 
 //加密
 Route::post('enctypt',"Api\SignController@encrypt");
+//非对称解密
+Route::post('enctypt2',"Api\SignController@rsaDecrypt");
+
+Route::get('sendA',"Api\TestController@sendA");
+
+
+Route::get('sign',"Api\TestController@sign");

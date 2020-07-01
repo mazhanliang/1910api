@@ -67,4 +67,13 @@ class SignController extends Controller
         $dec_data=openssl_decrypt($enc_data,$method,$key,OPENSSL_RAW_DATA,$iv);
         echo $dec_data;
     }
+
+    //非对称解密
+    public function rsaDecrypt(){
+        $data=$_POST['data'];
+        $key_content=file_get_contents(storage_path('keys/priv.key'));
+        $priv_key=openssl_get_privatekey($key_content);
+        openssl_private_decrypt($data,$dec_data,$priv_key);
+        var_dump($dec_data);
+    }
 }
